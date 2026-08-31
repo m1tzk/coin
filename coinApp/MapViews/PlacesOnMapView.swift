@@ -27,9 +27,12 @@ struct PlacesOnMapView: View {
     @State private var selectedPlaceId: PersistentIdentifier?
     @State private var selectedPlace: LocatedPlace?
     
+    @State private var isUserLocationFocusRequested = false
+    
     @State private var searchText = ""
     
-    var focusPlace: Place? = nil
+//    var focusPlace: Place? = nil
+    @Environment(AppRouter.self) private var router
     
     private struct LocatedPlace: Identifiable {
         let place: Place
@@ -82,6 +85,7 @@ struct PlacesOnMapView: View {
                 .accessibilityLabel("Тип отображения карты")
                 
                 Button {
+                    isUserLocationFocusRequested = true
                     locationManager.requestCurrentLocation()
                 } label: {
                     Image(systemName: "location.fill")
@@ -102,19 +106,38 @@ struct PlacesOnMapView: View {
                 }
             }
         }
-        .task {
-            locationManager.requestCurrentLocation()
+        .onChange(of: router.placeFocusRequest, initial: true) { _, request in
+            guard let request else { return }
             
-            if let focusPlace, let coordinate = focusPlace.coordinate {
-                cameraPosition = .camera(
-                    MapCamera(centerCoordinate: coordinate, distance: 850, heading: 0, pitch: 0)
-                )
-                selectedPlaceId = focusPlace.persistentModelID
+            Task { @MainActor in
+                try? await Task.sleep(for: .milliseconds(200))
+                if let coordinate = request.place.coordinate {
+                    withAnimation(.smooth(duration: 0.8)) {
+                        cameraPosition = .camera(MapCamera(centerCoordinate: coordinate, distance: 850, heading: 0, pitch: 0))
+                    }
+                }
+                
+                selectedPlaceId = request.place.persistentModelID
+                
+                try? await Task.sleep(for: .milliseconds(350))
+                if let located = locatedPlaces.first(where: { $0.id == request.place.persistentModelID } ) {
+                    selectedPlace = located
+                }
+                
+                router.placeFocusRequest = nil
             }
         }
+        
+        .task {
+            locationManager.requestCurrentLocation()
+        }
+        
         .onChange(of: locationManager.locationRevision) {
+            guard isUserLocationFocusRequested else { return }
+            isUserLocationFocusRequested = false
             getFocusOnUserLocation()
         }
+        
         .onChange(of: selectedPlaceId) { _, id in
             guard let id, let place = locatedPlaces.first(where: { $0.id == id})
             else {return}
@@ -128,6 +151,7 @@ struct PlacesOnMapView: View {
                 selectedPlace = place
             }
         }
+        
         .sheet(item: $selectedPlace, onDismiss: { selectedPlaceId = nil }) { place in
             PlaceDetailSheet(place: place.place)
         }

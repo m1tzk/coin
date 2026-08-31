@@ -9,49 +9,41 @@ import SwiftUI
 struct CapabilitiesCard: View {
     let capabilities: Capabilities
     
-    @State private var animationTrigger: Bool = false
-    
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             HStack {
                 Spacer()
                 Image(systemName: capabilities.icon)
-                    .font(.system(size: 46))
-                    .symbolEffect(.bounce.down.byLayer, value: animationTrigger)
+                    .font(.system(size: 42))
                     .symbolRenderingMode(.hierarchical)
                     .foregroundStyle(Color("AccentColor"))
-                    .frame(width: 58, height: 58, alignment: .center)
-                    .padding([.top, .trailing])
+                    .frame(width: 52, height: 52)
+                    .padding([.top, .trailing], 16)
             }
-            Spacer()
-            VStack(alignment: .leading, spacing: 6) {
+            Spacer(minLength: 12)
+            VStack(alignment: .leading, spacing: 4) {
                 Text(capabilities.name)
-                    .font(.title)
-                    .fontWeight(.bold)
+                    .font(.title2.weight(.bold))
                     .fontWidth(.expanded)
-                    .foregroundStyle(Color(.text))
+                    .foregroundStyle(.primary)
                 
                 Text(capabilities.description)
-                    .font(.headline)
-                    .fontWeight(.medium)
+                    .font(.subheadline.weight(.medium))
                     .fontWidth(.condensed)
-                    .foregroundStyle(Color(.text))
+                    .foregroundStyle(.secondary)
                     .lineLimit(2)
             }
-            .padding([.leading, .trailing, .bottom])
+            .padding([.leading, .trailing, .bottom], 16)
             
         }
-        .aspectRatio(3.0 / 1.75, contentMode: .fit)
+        .aspectRatio(16.0 / 10.0, contentMode: .fit)
         .background {
-            RoundedRectangle(cornerRadius: 16)
-                .fill(Color(.lightGray).opacity(0.2))
+            RoundedRectangle(cornerRadius: 18, style: .continuous)
+                .fill(Color(uiColor: .secondarySystemBackground))
+                .shadow(color: .black.opacity(0.5), radius: 6, x: 0, y: 3)
         }
-        .contentShape(Rectangle())
-        .onTapGesture {
-            animationTrigger.toggle()
-            
-            //переход на другой экран
-        }
+        .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
+        .contentShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
     }
 }
 

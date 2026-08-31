@@ -36,3 +36,16 @@ enum RecordDateFormatter {
         string.prefix(1).uppercased() + string.dropFirst()
     }
 }
+
+extension RecordDateFormatter {
+    static func chartAxisDate(_ date: Date, period: FilterPeriod) -> String {
+        switch period {
+        case .today:
+            return time(date)
+        case .week, .month:
+            return dayMonthTime(date)
+        case .all:
+            return full(date)
+        }
+    }
+}

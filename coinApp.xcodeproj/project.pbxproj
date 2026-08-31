@@ -23,8 +23,6 @@
 		0D51F4E5302A362200205079 /* TopBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D51F4D1302A362200205079 /* TopBannerView.swift */; };
 		0D51F4E6302A362200205079 /* coinApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D51F4D4302A362200205079 /* coinApp.swift */; };
 		0D51F4E7302A362200205079 /* CoinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D51F4D5302A362200205079 /* CoinView.swift */; };
-		0D51F4E8302A362200205079 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D51F4D6302A362200205079 /* ContentView.swift */; };
-		0D51F4EA302A363F00205079 /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D51F4E9302A363F00205079 /* PreviewData.swift */; };
 		0D63825A303C68D6006FB5DF /* ExistingPlacePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D638259303C68D6006FB5DF /* ExistingPlacePicker.swift */; };
 		0D676975302C90A20080BF4D /* PlacesOnMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D676974302C90A20080BF4D /* PlacesOnMapView.swift */; };
 		0D67697A302C97A60080BF4D /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D676979302C97A60080BF4D /* LocationManager.swift */; };
@@ -37,11 +35,14 @@
 		0D921331303B86A500267765 /* FilterPeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D921330303B869E00267765 /* FilterPeriod.swift */; };
 		0DA48A7030404DEB0013AA5F /* RecordDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA48A6F30404DEB0013AA5F /* RecordDateFormatter.swift */; };
 		0DA48A72304086530013AA5F /* ExpenseItemTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA48A71304086530013AA5F /* ExpenseItemTableView.swift */; };
+		0DB3953B3061871F00946E58 /* FinanceStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB3953A3061871F00946E58 /* FinanceStatisticsView.swift */; };
+		0DB3953D3061A21F00946E58 /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB3953C3061A21900946E58 /* PreviewData.swift */; };
 		0DEDCF92303725FE00BECDA7 /* PlaceDetailSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEDCF91303725FE00BECDA7 /* PlaceDetailSheet.swift */; };
 		0DEDCF953037429B00BECDA7 /* ReadOnlyStarRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEDCF943037429B00BECDA7 /* ReadOnlyStarRatingView.swift */; };
 		0DEDCF983037436500BECDA7 /* ReverseGeocodedAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEDCF973037436500BECDA7 /* ReverseGeocodedAddressView.swift */; };
 		0DEDCF9A3037471100BECDA7 /* PlacePhotoGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEDCF993037471100BECDA7 /* PlacePhotoGallery.swift */; };
 		0DEDCF9C30375A6E00BECDA7 /* FullScreenPhotoViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEDCF9B30375A6E00BECDA7 /* FullScreenPhotoViewer.swift */; };
+		0DEFE4253045872F004098F6 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEFE4243045872F004098F6 /* AppRouter.swift */; };
 		0DFD0DE630335D0500F11563 /* ExpensePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFD0DE530335D0500F11563 /* ExpensePhoto.swift */; };
 		0DFD0DE830335F8400F11563 /* PhotoFanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFD0DE730335F8400F11563 /* PhotoFanView.swift */; };
 		0DFD0DEA30336AF700F11563 /* StarRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFD0DE930336AF700F11563 /* StarRatingView.swift */; };
@@ -65,8 +66,6 @@
 		0D51F4D3302A362200205079 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0D51F4D4302A362200205079 /* coinApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coinApp.swift; sourceTree = "<group>"; };
 		0D51F4D5302A362200205079 /* CoinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinView.swift; sourceTree = "<group>"; };
-		0D51F4D6302A362200205079 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		0D51F4E9302A363F00205079 /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
 		0D638259303C68D6006FB5DF /* ExistingPlacePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExistingPlacePicker.swift; sourceTree = "<group>"; };
 		0D676974302C90A20080BF4D /* PlacesOnMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesOnMapView.swift; sourceTree = "<group>"; };
 		0D676979302C97A60080BF4D /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -80,11 +79,14 @@
 		0D921330303B869E00267765 /* FilterPeriod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPeriod.swift; sourceTree = "<group>"; };
 		0DA48A6F30404DEB0013AA5F /* RecordDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordDateFormatter.swift; sourceTree = "<group>"; };
 		0DA48A71304086530013AA5F /* ExpenseItemTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseItemTableView.swift; sourceTree = "<group>"; };
+		0DB3953A3061871F00946E58 /* FinanceStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceStatisticsView.swift; sourceTree = "<group>"; };
+		0DB3953C3061A21900946E58 /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
 		0DEDCF91303725FE00BECDA7 /* PlaceDetailSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailSheet.swift; sourceTree = "<group>"; };
 		0DEDCF943037429B00BECDA7 /* ReadOnlyStarRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadOnlyStarRatingView.swift; sourceTree = "<group>"; };
 		0DEDCF973037436500BECDA7 /* ReverseGeocodedAddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReverseGeocodedAddressView.swift; sourceTree = "<group>"; };
 		0DEDCF993037471100BECDA7 /* PlacePhotoGallery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacePhotoGallery.swift; sourceTree = "<group>"; };
 		0DEDCF9B30375A6E00BECDA7 /* FullScreenPhotoViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenPhotoViewer.swift; sourceTree = "<group>"; };
+		0DEFE4243045872F004098F6 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
 		0DFD0DE530335D0500F11563 /* ExpensePhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensePhoto.swift; sourceTree = "<group>"; };
 		0DFD0DE730335F8400F11563 /* PhotoFanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoFanView.swift; sourceTree = "<group>"; };
 		0DFD0DE930336AF700F11563 /* StarRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRatingView.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 		0D51F4C4302A362200205079 /* ExpensesModel */ = {
 			isa = PBXGroup;
 			children = (
+				0DB395393061850F00946E58 /* DataChartsView */,
 				0DA48A6E30404DD00013AA5F /* FilterPeriod */,
 				0D92132C303B7B7500267765 /* Place.swift */,
 				0D51F4C3302A362200205079 /* ExpenseRecord.swift */,
@@ -194,9 +197,9 @@
 				0D51F4D3302A362200205079 /* Assets.xcassets */,
 				0D51F4D4302A362200205079 /* coinApp.swift */,
 				0D51F4D5302A362200205079 /* CoinView.swift */,
-				0D51F4D6302A362200205079 /* ContentView.swift */,
-				0D51F4E9302A363F00205079 /* PreviewData.swift */,
 				0D676979302C97A60080BF4D /* LocationManager.swift */,
+				0DEFE4243045872F004098F6 /* AppRouter.swift */,
+				0DB3953C3061A21900946E58 /* PreviewData.swift */,
 			);
 			path = coinApp;
 			sourceTree = "<group>";
@@ -235,6 +238,14 @@
 				0DA48A6F30404DEB0013AA5F /* RecordDateFormatter.swift */,
 			);
 			path = FilterPeriod;
+			sourceTree = "<group>";
+		};
+		0DB395393061850F00946E58 /* DataChartsView */ = {
+			isa = PBXGroup;
+			children = (
+				0DB3953A3061871F00946E58 /* FinanceStatisticsView.swift */,
+			);
+			path = DataChartsView;
 			sourceTree = "<group>";
 		};
 		0DEDCF90303725E200BECDA7 /* PlaceDetailView */ = {
@@ -360,7 +371,6 @@
 				0D51F4D9302A362200205079 /* BriefFinanceRecordView.swift in Sources */,
 				0D51F4DA302A362200205079 /* CapabilitiesBannerView.swift in Sources */,
 				0D676975302C90A20080BF4D /* PlacesOnMapView.swift in Sources */,
-				0D51F4EA302A363F00205079 /* PreviewData.swift in Sources */,
 				0DEDCF9C30375A6E00BECDA7 /* FullScreenPhotoViewer.swift in Sources */,
 				0D6BE409302DF88100C8AB4B /* ExpenseItemDraft.swift in Sources */,
 				0D51F4DB302A362200205079 /* CapabilitiesCard.swift in Sources */,
@@ -374,17 +384,20 @@
 				0DEDCF92303725FE00BECDA7 /* PlaceDetailSheet.swift in Sources */,
 				0D51F4DF302A362200205079 /* Capabilities.swift in Sources */,
 				0D921331303B86A500267765 /* FilterPeriod.swift in Sources */,
+				0DB3953D3061A21F00946E58 /* PreviewData.swift in Sources */,
 				0D67697C302CA0970080BF4D /* PlacePickerView.swift in Sources */,
 				0D51F4E0302A362200205079 /* Item.swift in Sources */,
 				0DA48A7030404DEB0013AA5F /* RecordDateFormatter.swift in Sources */,
 				0D51F4E1302A362200205079 /* PlacesCard.swift in Sources */,
 				0D51F4E2302A362200205079 /* PlacesCardView.swift in Sources */,
+				0DEFE4253045872F004098F6 /* AppRouter.swift in Sources */,
 				0D51F4E3302A362200205079 /* ImageBView.swift in Sources */,
 				0DFD0DE630335D0500F11563 /* ExpensePhoto.swift in Sources */,
 				0D51F4E4302A362200205079 /* TextBView.swift in Sources */,
 				0DEDCF983037436500BECDA7 /* ReverseGeocodedAddressView.swift in Sources */,
 				0DFD0DE830335F8400F11563 /* PhotoFanView.swift in Sources */,
 				0DEDCF953037429B00BECDA7 /* ReadOnlyStarRatingView.swift in Sources */,
+				0DB3953B3061871F00946E58 /* FinanceStatisticsView.swift in Sources */,
 				0DFD0DEA30336AF700F11563 /* StarRatingView.swift in Sources */,
 				0D51F4E5302A362200205079 /* TopBannerView.swift in Sources */,
 				0DA48A72304086530013AA5F /* ExpenseItemTableView.swift in Sources */,
@@ -393,7 +406,6 @@
 				0DFD0DED303384BD00F11563 /* ExpensePhotoDraft.swift in Sources */,
 				0D67697F302CA5B00080BF4D /* AddExpenseView.swift in Sources */,
 				0D51F4E7302A362200205079 /* CoinView.swift in Sources */,
-				0D51F4E8302A362200205079 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,32 +13,24 @@ struct MainPageView: View {
     var body: some View {
         NavigationStack {
             ScrollView(.vertical, showsIndicators: false) {
-                VStack(alignment: .leading, spacing: 42) {
+                VStack(alignment: .leading, spacing: 32) {
                     TopBannerView()
-                        .containerRelativeFrame(.horizontal)
-                        .containerRelativeFrame(.vertical) { size, axis in
-                            size * 0.7
+                        .containerRelativeFrame(.vertical) { size, _ in
+                            size * 0.62
                         }
+                    
                     CapabilitiesBannerView()
+                    
                     PlacesCardView()
                 }
+                .padding(.bottom, 32)
             }
+            .ignoresSafeArea(edges: .top)
             .navigationTitle("Главная")
-            .navigationDestination(for: Capabilities.self) { capability in
-                switch capability {
-                case .briefFinanceRecord:
-                    BriefFinanceRecordView()
-                    
-                case .financeGraphRepresentation:
-                    Text("граф")
-                    
-                case .overallStatistics:
-                    Text("стат")
-                }
-                
-            }
             .toolbarTitleDisplayMode(.inlineLarge)
+            .toolbarBackground(.hidden, for: .navigationBar)
             .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
                     Button { isAddingExpense = true }
                     label: {
                         Image(systemName: "plus")
@@ -54,8 +46,18 @@ struct MainPageView: View {
                 }
             }
         }
+    }
 }
 
-#Preview {
-    MainPageView()
+
+struct CardScaleButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .scaleEffect(configuration.isPressed ? 0.97 : 1.0)
+            .animation(.snappy(duration: 0.2), value: configuration.isPressed)
+    }
 }
+
+//#Preview {
+//    MainPageView()
+//}

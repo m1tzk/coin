@@ -12,8 +12,9 @@ struct BriefFinanceRecordView: View {
         sort: \ExpenseRecord.createdAt,
         order: .reverse
     )
-    
     private var records: [ExpenseRecord]
+    
+    @Environment(AppRouter.self) private var router
     
     @State private var selectedPeriod: FilterPeriod = .all
     @State private var isAddingExpense = false
@@ -65,6 +66,14 @@ struct BriefFinanceRecordView: View {
             }
             .navigationDestination(item: $selectedRecord) { record in
                 ExpenseRecordDetailView(record: record)
+            }
+            // открытие по запросу из главного экрана
+            .onChange(of: router.recordOpenRequest, initial: true) { _, request in
+                guard let request else { return }
+                
+                selectedRecord = request.record
+                
+                router.recordOpenRequest = nil
             }
             .sheet(isPresented: $isAddingExpense) {
                 NavigationStack {
@@ -130,7 +139,8 @@ struct ExpenseRecordRowView: View {
 struct ExpenseRecordDetailView: View {
     let record: ExpenseRecord
     
-    @State private var showsPlaceOnMap = false
+//    @State private var showsPlaceOnMap = false
+    @Environment(AppRouter.self) private var router
     
     var body: some View {
         ScrollView {
@@ -161,7 +171,9 @@ struct ExpenseRecordDetailView: View {
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Button{
-                    showsPlaceOnMap = true
+                    guard let place = record.place else { return }
+                    router.placeFocusRequest = PlaceFocusRequest(place: place)
+                    router.selectedTab = .places
                 } label: {
                     Image(systemName: "mappin.and.ellipse")
                         .font(.title2)
@@ -171,9 +183,9 @@ struct ExpenseRecordDetailView: View {
                 .accessibilityLabel("Показать место расхода на карте.")
             }
         }
-        .navigationDestination(isPresented: $showsPlaceOnMap) {
-            PlacesOnMapView()
-        }
+//        .navigationDestination(isPresented: $showsPlaceOnMap) {
+//            PlacesOnMapView()
+//        }
     }
     
     private func formatted(_ amount: Decimal) -> String {

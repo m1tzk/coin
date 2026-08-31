@@ -16,15 +16,18 @@ final class Place {
     var latitude: Double?
     var longitude: Double?
     
+    var createdAt: Date?
+    
     @Relationship(deleteRule: .cascade, inverse: \ExpenseRecord.place)
     
     var visits: [ExpenseRecord] = []
     
-    init(name: String, latitude: Double? = nil, longitude: Double? = nil, visits: [ExpenseRecord] = []) {
+    init(name: String, latitude: Double? = nil, longitude: Double? = nil, visits: [ExpenseRecord] = [], createdAt: Date? = .now) {
         self.name = name
         self.latitude = latitude
         self.longitude = longitude
         self.visits = visits
+        self.createdAt = createdAt
     }
     
     var totalSpent: Decimal {
@@ -50,5 +53,17 @@ extension Place {
             return nil
         }
         return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    }
+}
+
+extension Array {
+    // случайный элемент работающий при перезапуске
+    // одинаковый при перерисовках
+    func pseudoRandomElement(seed: some Hashable) -> Element? {
+        guard !isEmpty else { return nil }
+        let hash = seed.hashValue
+        let safeHash = (hash == Int.min) ? 0 : abs(hash)
+        let index = safeHash % count
+        return self[index]
     }
 }

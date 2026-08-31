@@ -7,39 +7,49 @@
 import SwiftUI
 
 struct CapabilitiesBannerView: View {
-
+    @Environment(AppRouter.self) private var router
     
     var body: some View {
-        VStack (alignment: .leading) {
-            VStack (alignment: .leading, spacing: 6) {
+        VStack (alignment: .leading, spacing: 14) {
+            VStack (alignment: .leading, spacing: 4) {
                 Text("Финансы")
-                    .font(.title)
-                    .fontWeight(.bold)
+                    .font(.title.weight(.bold))
                     .fontWidth(.expanded)
-                    .foregroundStyle(Color(.text))
+                    .foregroundStyle(.primary)
                 
                 Text("Управляйте своими расходами")
-                    .font(.headline)
-                    .fontWeight(.medium)
-                    .fontWidth(.expanded)
-                    .foregroundStyle(Color(.text))
+                    .font(.subheadline.weight(.medium))
+                    .foregroundStyle(.secondary)
             }
-            .padding(.horizontal, 22)
+            .padding(.horizontal, 20)
+            
             ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: -16) {
+                HStack(spacing: 14) {
                     ForEach (Capabilities.allCases) { capability in
-                        NavigationLink(value: capability) {
+                        Button {
+                            router.selectedTab = targetTab(for: capability)
+                        } label: {
                             CapabilitiesCard(capabilities: capability)
                                 .containerRelativeFrame(.horizontal) { size, axis in
-                                    size * 0.85
+                                    size * 0.82
                                 }
                         }
+                        .buttonStyle(CardScaleButtonStyle())
                     }
-                    .padding(.horizontal, 16)
                 }
                 .scrollTargetLayout()
             }
             .scrollTargetBehavior(.viewAligned)
+            .contentMargins(.horizontal, 20, for: .scrollContent)
+        }
+    }
+    
+    private func targetTab(for capability: Capabilities) -> AppTab {
+        switch capability {
+        case .briefFinanceRecord:
+                return .expenses
+        case .financeGraphRepresentation, .overallStatistics:
+            return .stats
         }
     }
 }

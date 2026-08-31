@@ -16,13 +16,13 @@ struct PlaceDetailSheet: View {
     
     @State private var detent: PresentationDetent
     
-    private let compactDetent: PresentationDetent = .fraction(0.26)
+    private let compactDetent: PresentationDetent = .fraction(0.22)
     
     private var isLarge: Bool { detent == .large }
 
     init(place: Place) {
         self.place = place
-        _detent = State(initialValue: PresentationDetent.fraction(0.26))
+        _detent = State(initialValue: PresentationDetent.fraction(0.22))
     }
     
     var body: some View {
@@ -57,9 +57,9 @@ struct PlaceDetailSheet: View {
                 if let rating = place.averageRating {
                     HStack(spacing: 6) {
                         ReadOnlyStarRatingView(rating: Int(rating.rounded()))
-                        Text(rating.formatted(.number.precision(.fractionLength(1))))
-                            .font(.subheadline.weight(.semibold))
-                            .monospacedDigit()
+//                        Text(rating.formatted(.number.precision(.fractionLength(1))))
+//                            .font(.subheadline.weight(.semibold))
+//                            .monospacedDigit()
                     }
                 } else {
                     Text("Оценка не проставлена.")
@@ -103,9 +103,9 @@ struct PlaceDetailSheet: View {
                         if let rating = place.averageRating {
                             HStack(spacing: 6) {
                                 ReadOnlyStarRatingView(rating: Int(rating.rounded()))
-                                Text(rating.formatted(.number.precision(.fractionLength(1))))
-                                    .font(.subheadline.weight(.semibold))
-                                    .monospacedDigit()
+//                                Text(rating.formatted(.number.precision(.fractionLength(1))))
+//                                    .font(.subheadline.weight(.semibold))
+//                                    .monospacedDigit()
                             }
                         } else {
                             Text("Оценка не проставлена.")
@@ -158,26 +158,11 @@ struct PlaceDetailSheet: View {
                         .font(.headline)
                     
                     ExpenseItemTableView(items: visit.items, currencyCode: visit.currencyCode)
-                    
-//                    ForEach(visit.items, id: \.persistentModelID) { item in
-//                        HStack {
-//                            Text(item.serviceName)
-//                            Spacer()
-//                            Text("\(item.quantity) шт.")
-//                                .foregroundStyle(.secondary)
-//                                .padding(.trailing, 8)
-//                            Text(item.totalAmount, format: .currency(code: visit.currencyCode))
-//                                .foregroundStyle(.secondary)
-//                                .monospacedDigit()
-//                        }
-//                        .font(.subheadline)
-//                    }
                 }
             }
         }
     }
     
-//    private var ratingView: some View {}
 }
 
 //#Preview {
