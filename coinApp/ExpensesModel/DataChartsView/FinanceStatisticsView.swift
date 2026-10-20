@@ -190,7 +190,7 @@ struct FinanceStatisticsView: View {
         case .all:
             guard
                 let firstDate = timeSpendings.first?.date,
-                let lastDate = timeSpendings.first?.date,
+                let lastDate = timeSpendings.last?.date,
                 let firstMonth = calendar.dateInterval(of: .month, for: firstDate),
                 let lastMonth = calendar.dateInterval(of: .month, for: lastDate)
                     else { return now...now }
@@ -566,7 +566,6 @@ struct FinanceStatisticsView: View {
         .chartLegend(.hidden)
         .chartXScale(domain: visitsXDomain, range: .plotDimension(startPadding: 14, endPadding: 14))
         .visitsHorizontalScrolling(enabled: isVisitsChartScrollable, visibleDomainLength: visibleVisitsDomainLength, initialPosition: visitsXDomain.lowerBound, alignment: visitsScrollAlignment)
-        .chartScrollableAxes(.vertical)
         .chartXAxis {
             AxisMarks(values: visitsAxisValues) { value in
                 AxisGridLine()
@@ -619,7 +618,6 @@ struct FinanceStatisticsView: View {
         .chartLegend(.hidden)
         .chartXScale(domain: visitsXDomain, range: .plotDimension(startPadding: 14, endPadding: 14))
         .visitsHorizontalScrolling(enabled: isVisitsChartScrollable, visibleDomainLength: visibleVisitsDomainLength, initialPosition: visitsXDomain.lowerBound, alignment: visitsScrollAlignment)
-        .chartScrollableAxes(.vertical)
         .chartXAxis {
             AxisMarks(values: visitsAxisValues) { value in
                 AxisGridLine()
@@ -713,12 +711,7 @@ struct FinanceStatisticsView: View {
 
 private extension View {
     @ViewBuilder
-    func visitsHorizontalScrolling(
-        enabled: Bool,
-        visibleDomainLength: TimeInterval,
-        initialPosition: Date,
-        alignment: DateComponents
-    ) -> some View {
+    func visitsHorizontalScrolling(enabled: Bool, visibleDomainLength: TimeInterval, initialPosition: Date, alignment: DateComponents) -> some View {
         if enabled {
             self
                 .chartScrollableAxes(.horizontal)
